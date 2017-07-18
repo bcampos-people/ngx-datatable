@@ -1,11 +1,13 @@
 <div>
   <ngx-datatable
-    class="material fullscreen"
+    class="material striped fullscreen"
+    style="height: 100vh"
     [rows]="rows"
     [scrollbarV]="true"
     [scrollbarH]="true"
     [columns]="columns"
-    [columnMode]="'force'"
-    (page)="onPage($event)">
+    [columnMode]="'force'">
+    <ngx-datatable-column name="id" [frozenLeft]="true" ></ngx-datatable-column>
+    <ngx-datatable-column name="paciente"></ngx-datatable-column>
   </ngx-datatable>
 </div>

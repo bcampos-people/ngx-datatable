@@ -5,22 +5,19 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  // variables
-  timeout: any;
+  rows = [];
+  constructor() {
+    this.fetch((data) => {
+      this.rows = data;
+    });
+  }
 
-  // getting the data
   fetch(cb) {
     const req = new XMLHttpRequest();
     req.open('GET', 'assets/data/webris.json');
 
     req.onload = () => {
-      const rows = JSON.parse(req.response);
-
-      for (const row of rows) {
-        row.height = Math.floor(Math.random() * 80) + 50;
-      }
-
-      cb(rows);
+      cb(JSON.parse(req.response));
     };
 
     req.send();
