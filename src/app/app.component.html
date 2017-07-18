@@ -2,7 +2,10 @@
   <ngx-datatable
     class="material fullscreen"
     [rows]="rows"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
     [columns]="columns"
-    [columnMode]="'force'">
+    [columnMode]="'force'"
+    (page)="onPage($event)">
   </ngx-datatable>
 </div>
